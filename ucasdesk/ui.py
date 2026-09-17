@@ -439,7 +439,7 @@ class Window(QMainWindow):
             payload = self.account('sep') | {'action': 'science-schedule', 'preview': True}
             self.start_job('lecture', '科研讲座时间表 · 只读查询', NODE, [ROOT / 'adapters/lecture.mjs'], payload)
         except Exception as exc:
-            self.error('请先在“个人信息”填写 SEP 账号。' + str(exc))
+            self.error(str(exc))
 
     def save_daily_plan(self):
         try:
