@@ -264,7 +264,7 @@ class Window(QMainWindow):
         password = QLineEdit(existing['password'])
         password.setEchoMode(QLineEdit.Password)
         password.setPlaceholderText('密码只在本机使用')
-        remember = QCheckBox('记住账号密码（使用当前 Windows 账户加密）')
+        remember = QCheckBox('记住账号密码（使用系统安全存储）')
         remember.setChecked(True)
         form.addRow('账号', user)
         form.addRow('密码', password)
@@ -286,7 +286,7 @@ class Window(QMainWindow):
         return self.vault.get(key).copy()
 
     def build_profile(self):
-        layout = self.page('个人信息', '账号由当前 Windows 用户加密保存在本机；课程、讲座、已选同步与自动选课共用。')
+        layout = self.page('个人信息', '账号由当前系统的安全存储保存在本机；课程、讲座、已选同步与自动选课共用。')
         layout.addWidget(self.account_form('sep', 'SEP 信息门户账号', 'SEP 邮箱 / 账号'))
         layout.addWidget(self.account_form('iclass', '轻新课堂账号', '学号'))
         layout.addWidget(label('账号修改对之后启动的任务生效。检测只登录，不报名、不选课、不签到；SEP 检测会打开独立浏览器，验证码或邮箱验证需要你完成。', 'muted'))
